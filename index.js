@@ -25,7 +25,7 @@ async function run() {
     // GET API for packages
     app.get('/packages', async (req, res) => {
       const cursor = PackageCollection.find({})
-      const result = await cursor.toArray()
+      const result = await cursor.toArray(req)
       res.json(result);
     })
      
@@ -33,14 +33,14 @@ async function run() {
     //GET API for hotels
     app.get('/hotels', async (req, res) => {
       const cursor = hotelCollection.find({})
-      const result = await cursor.toArray()
+      const result = await cursor.toArray(req)
       res.json(result);
     })
 
     //GET MyOrder collection
     app.get('/myorder', async (req, res) => {
       const cursor = orderCollection.find({})
-      const myOrders = await cursor.toArray();
+      const myOrders = await cursor.toArray(req);
       res.json(myOrders);
     })
     
